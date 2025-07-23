@@ -1,5 +1,5 @@
 # RinomXE, here 7/22/2025, 9:02PM.
-Open source 3 or more dimensional graphics math in Slang shaders. This is currently untested but should work. See [License](https://gugquettex.com/en/project/software-license.php) for terms, basically MIT license no attribution.
+Open source 3 or more dimensional graphics math in Slang shaders. This is currently untested but should work. See [License](https://gugquettex.com/en/project/software-license.php) for terms, basically MIT license no attribution. Use z distances with z after Dists, newer better version.
 ## Tutorial: Compile to needed shaders then:
 To start, put your view point in first point slot and view plane center point in second slot for points buffer. Place your shapes by making an index per each vertex in shapes buffer. With that, place shapeEnds like 0 is 0, 1 is 1 after last index to include for first shape, 2 is 1 after last index to include for second shape and so on until last is your end of valid inputs plus one. This is your input. [@viewPoint[@xyz[0]]-@viewAtPoint[@xyz[0]],@viewPoint[@xyz[1]]-@viewAtPoint[@xyz[1]],@viewAtPoint[@xyz[2]]-@viewPoint[@xyz[2]]] from Ruby, this is how to set constants in your big uniform. xyz is in its order and each index for a part. unitSize is number of floats in a point. pointNumber is number of points. shapeNumber is number of shapes.
 
