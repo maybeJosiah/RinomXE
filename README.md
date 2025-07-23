@@ -1,2 +1,9 @@
-# RinomXE
-Open source 3 or more dimensional graphics math in Slang shaders. X E.
+# RinomXE, here 7/22/2025, 9:02PM.
+Open source 3 or more dimensional graphics math in Slang shaders. This is currently untested but should work. See [License](https://gugquettex.com/en/project/software-license.php) for terms, basically MIT license no attribution.
+## Tutorial: Compile to needed shaders then:
+To start, put your view point in first point slot and view plane center point in second slot for points buffer. Place your shapes by making an index per each vertex in shapes buffer. With that, place shapeEnds like 0 is 0, 1 is 1 after last index to include for first shape, 2 is 1 after last index to include for second shape and so on until last is your end of valid inputs plus one. This is your input. [@viewPoint[@xyz[0]]-@viewAtPoint[@xyz[0]],@viewPoint[@xyz[1]]-@viewAtPoint[@xyz[1]],@viewAtPoint[@xyz[2]]-@viewPoint[@xyz[2]]] from Ruby, this is how to set constants in your big uniform. xyz is in its order and each index for a part. unitSize is number of floats in a point. pointNumber is number of points. shapeNumber is number of shapes.
+
+You should once you have that call in order, d to 2d, offsets and reverse in your logical order, then z distances, pair sort first time or any time shapeNumber changed or if you want to, then call merge sort repeatedly. For merge sort, start with 1 as step unless using pair sort, then start at 2. Double step until it is greater than or equal to shapeNumber. Call d to 2d with number of points number of threads, same for offset 2d and reverse x or y, and half that for pair sort and number of shapes of threads for z distances and half shapeNumber divided by step for merge sort. shouldRound is 0 for rounding and anything else to not. After all of this, drawOrder contains an index of a shape per each and points2d is each index a point with them arranged same as original points. Use shapes accordingly.
+### Note that this only does math and may not be entirely correct
+See [website](https://gugquettex.com/en/project/rinomxe/index.php) for more details.
+#### X E.
